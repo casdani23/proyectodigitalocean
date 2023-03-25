@@ -3,11 +3,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.min.css">
 
     @csrf
-    <div class="block mt-5" style="display: flex; justify-content: center;">
+    <div class="block mt-5" style="display: flex; justify-content: center; color:red; margin-top: 30px;">
         <label for="remember_me" class="inline-flex items-center">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <div>
-            <span class="font-semibold  text-gray-800 dark:text-gray-200 leading-tight" style="font-size: 50px; color:red">{{ $code }}</span>
+            <span class="font-semibold  text-gray-800 dark:text-gray-200 leading-tight" style="font-size: 50px; color:white">{{ $code }}</span>
         </div>
   </button>
 </div>
