@@ -94,7 +94,7 @@ class VerificacionController extends Controller
                 Session::put('code', $codes->codigo_web);
                 return redirect('dashboard');
             }{
-                return view('verificacionCodigo');
+                return view('layouts.verificacionCodigo');
 
             }
         }
