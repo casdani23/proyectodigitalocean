@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.min.css">
 
     @csrf
-    <div class="block mt-5" style="display: flex; justify-content: center; color:red; margin-top: 30px;">
+    <div class="block mt-5" style="display: flex; justify-content: center; color:red; margin-top: -30px;">
         <label for="remember_me" class="inline-flex items-center">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <div>
