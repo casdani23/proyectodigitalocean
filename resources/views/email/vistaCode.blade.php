@@ -9,7 +9,13 @@
 <body>
     <h1>Verificacion</h1>
     <p>Da click para mostrar codigo</p>
-    <a href="{{$code}}" target="_blank" rel="noopener noreferrer"> {{$code}} </a>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong><a href="{{$code}}" target="_blank" rel="noopener noreferrer"> {{$code}} </a></strong> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
     <script>
 </script>
 

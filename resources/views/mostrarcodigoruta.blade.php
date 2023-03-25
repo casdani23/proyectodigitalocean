@@ -5,7 +5,13 @@
     @csrf
     <div class="block mt-5" style="display: flex; justify-content: center;">
         <label for="remember_me" class="inline-flex items-center">
-            <span class="font-semibold  text-gray-800 dark:text-gray-200 leading-tight" style="font-size: 50px;">{{ $code }}</span>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <span class="font-semibold  text-gray-800 dark:text-gray-200 leading-tight" style="font-size: 50px;">{{ $code }}</span>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
         </label>
         <br><br>
         <br><br>
