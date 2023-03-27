@@ -8,8 +8,8 @@
         <div class="block mt-5" style="display: flex; justify-content: center; background:red; margin-top:20px;">
              <label for="remember_me" class="inline-flex items-center">
              <div class="alert alert-danger alert-dismissible fade show" role="alert">
-             <div style="background-color: red; width: 400px; height: 200px;">
-             <span class="font-semibold  text-gray-800 dark:text-gray-200 leading-tight" style="font-size: 50px; color:black;">Tu codigo para el cel es:</span>
+             <div style="width: 400px; height: 200px;">
+             <span class="font-semibold  text-gray-800 dark:text-gray-200 leading-tight" style="font-size: 50px; color:black;">Tu codigo para el cel es:</span><br>
             <span class="font-semibold  text-gray-800 dark:text-gray-200 leading-tight" style="font-size: 50px; color:black;">{{ $code }}</span>
         </div>
         </div>
