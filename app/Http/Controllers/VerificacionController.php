@@ -34,6 +34,8 @@ class VerificacionController extends Controller
                 $code_gen->verificacion_web = Crypt::encryptString($codigoLogin, $encryption_key);
                 $code_gen->codigo_movil = Hash::make($codigoVerificación);
                 $code_gen->verificacion_movil = Crypt::encryptString($codigoVerificación, $encryption_key);
+                    
+
                 $code_gen->save();
         
                 $signed_url = URL::temporarySignedRoute(
@@ -78,8 +80,8 @@ class VerificacionController extends Controller
             }
         }
         return response()->json([
-            'message'=> "codigo no correcto"
-        ], 406);
+            'codigoL'=> Crypt::decryptString($codes->verificacion_movil, $encryption_key)
+        ],201);
     }
   
     public function validarcodigologin(Request $request)

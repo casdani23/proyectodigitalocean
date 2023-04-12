@@ -15,7 +15,12 @@
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+        
+        <div class="mt-4" hidden>
+            <x-input-label for="status" :value="__('true')" />
+            <x-text-input id="status" class="block mt-1 w-full" type="boolean" name="status" value="{{true}}" hidden required />
 
+        </div>
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />

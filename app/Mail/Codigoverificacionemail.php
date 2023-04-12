@@ -3,11 +3,12 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use PhpParser\Node\Expr\Cast\String_;
 
 class Codigoverificacionemail extends Mailable
 {
@@ -15,6 +16,7 @@ class Codigoverificacionemail extends Mailable
 
       public $subject = "Este es el codigo de verificacion";
       public $code;
+      public $mensaje;
 
     /**
      * Create a new message instance.
@@ -22,6 +24,9 @@ class Codigoverificacionemail extends Mailable
     public function __construct(String $code)
     {
         $this->code = $code;
+
+
+
     }
 
     /**
@@ -38,11 +43,31 @@ class Codigoverificacionemail extends Mailable
      * Get the message content definition.
      */
     public function content(): Content
-    {
+{
+    $user = Auth::user();
+    if ($user->id === 1) {
         return new Content(
-            view: 'email.vistaCode',
+            view: 'email.vistaGetToken',
+           
+        );
+    } else if($user->id === 2) {
+        return new Content(
+            view: 'email.VistaTokenSupervisor',
+           
         );
     }
+    return new Content(
+        view: 'email.vistaCode',
+    );
+}
+
+
+
+
+
+
+
+    
 
     /**
      * Get the attachments for the message.

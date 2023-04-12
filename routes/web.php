@@ -1,11 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdministradorController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\VerificacionController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MailtrapController;
-use App\Mail\Codigoverificacionemail;
-use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\supervisorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +21,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//supervisor
+Route::get('/supervisor', [supervisorController::class, 'index'])->name('supervisor.index');
+Route::get('/codetoken', [supervisorController::class, 'correoTokenSupervisor'])->name('vistacodigo');
+Route::get('/codigosupervisor', [ClienteController::class, 'showtoken'])->name('codigosupervisor');
+
+//Cliente
+Route::get('/productos/codigotoken', [ClienteController::class, 'correotoken'])->name('productos.correoToken');
+Route::resource('productos',ClienteController::class)->names('clientecrud');
+Route::post('productos/{id}/activar', [ClienteController::class, 'activarProducto'])->name('productos.activar');
+Route::post('productos/{id}/desactivar', [ClienteController::class, 'desactivarProducto'])->name('productos.desactivar');
+Route::put('/productos/{id}', [ClienteController::class, 'update'])->name('productos.update');
+Route::post('/verificar-token', [ClienteController::class,'verificarToken'])->name('verificar-token');
+Route::get('productos/verificacionCodigo',[ClienteController::class,'store'])->name('enviar');
 
 
-Route::get('/verificacionCodigo', [VerificacionController::class,'store'])->name('mostrar');
-
-Route::get('/code', [VerificacionController::class, 'show'])->middleware('signed')->name('html');
-
-Route::post('/dashboard', [VerificacionController::class, 'validarcodigologin'])->name('inicio');;
-
+//Administrador
+Route::get('/Administrador', [AdministradorController::class, 'index'])->name('administrador.index');
 
 
 
