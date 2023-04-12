@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\VerificacionController;
+use App\Http\Controllers\NormalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::post('/mostrar1', [VerificacionController::class, 'consumir']);
+/*Route::post('/mostrar1', [VerificacionController::class, 'consumir']);
 Route::post('/codigoapp', [VerificacionController::class, 'validarcodigoapp']);
 Route::post('/verificarcodigomovil', [VerificacionController::class, 'validarcodigologin']);
+
+//GetProducts Cliente
+Route::get('GetProducts', [ClienteController::class, 'index'])->name('dashboard');
+*/
 
 
 

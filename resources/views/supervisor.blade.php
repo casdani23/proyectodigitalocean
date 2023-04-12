@@ -33,15 +33,14 @@
 
                         <div class="btn-group" role="group" aria-label="Opciones">
                             
-                        <a id="boton-modificar" href="{{ route('clientecrud.edit', $producto->id) }}" class="btn btn-info disabled"   ><i class="bi bi-pencil"></i></a>
+                        <a id="boton-modificar" href="{{ route('clientecrud.edit', $producto->id) }}" class="btn btn-info "><i class="bi bi-pencil"></i></a>
                           <button   class="btn btn-success " ><i class="bi bi-plus"></i></button>
-                          @if ($tokenValido)
-    <script>
-        document.querySelectorAll('.btn-info').forEach(function (element) {
-            element.classList.remove('disabled');
-        });
-    </script>
-@endif
+                     
+            <form method="POST" >
+                @csrf
+                <button type="submit" class="btn btn-danger" ><i class="bi bi-x-lg"></i>
+</button>
+            </form>
     </div>
 </td>
 
@@ -49,11 +48,11 @@
                             @endforeach
                         </tbody>
 
-                            <form method="POST" action="{{ route('verificar-token') }}">
+                            <form method="POST" >
                  @csrf
                  <div class="input-group input-group-sm mb-1">
-                         <a href="{{ route('productos.correoToken') }}" class="btn btn-primary">Pedir Token</a>
-                         <input type="text" class="form-control" id="token" name="token" placeholder="Ingrese el token" required>
+                         <a href="{{ route('productos.correoToken') }}" class="btn btn-primary">Pedir Token al administrador</a>
+                         <input type="text" class="form-control" id="token" name="token" placeholder="Ingrese el token para desactivar" required>
                          <button type="submit" class="btn btn-secondary">Verificar token</button>
                      </div>
                          </form>
@@ -66,4 +65,6 @@
             </div>
         </div>
     </div>
+
+
 </x-app-layout>
